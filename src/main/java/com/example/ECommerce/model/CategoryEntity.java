@@ -1,8 +1,14 @@
 package com.example.ECommerce.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
+@Setter
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "category")
 
 public class CategoryEntity {
@@ -17,15 +23,6 @@ public class CategoryEntity {
     @Column(name = "image_url")
     private  String  imageUrl;
 
-    public CategoryEntity(Long id, String categoryName, String description, String imageUrl) {
-        this.id = id;
-        this.categoryName = categoryName;
-        this.description = description;
-        this.imageUrl = imageUrl;
-    }
-
-    public CategoryEntity() {
-    }
 
     public Long getId() {
         return id;

@@ -2,8 +2,11 @@ package com.example.ECommerce.controller;//package com.example.ECommerce.control
 
 
 
+import com.example.ECommerce.common.ApiResponse;
 import com.example.ECommerce.model.CategoryEntity;
 import com.example.ECommerce.service.CategoryService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,14 +19,24 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
     @PostMapping("/create")
-    public String createCategory(@RequestBody CategoryEntity category){
+    public ResponseEntity<ApiResponse> createCategory(@RequestBody CategoryEntity category){
         categoryService.createCategory(category);
-        return "successfuly";
+        return new ResponseEntity<>(new ApiResponse(true,"new category created"), HttpStatus.CREATED);
 
     }
     @GetMapping("/allCategory")
     public List<CategoryEntity> getAllCategories(){
         return categoryService.getAllCaegory();
+    }
+
+    @PostMapping("/update/{categoryId}")
+    public ResponseEntity<ApiResponse> updateCategory(@PathVariable Long categoryId,@RequestBody CategoryEntity category){
+        if(!categoryService.findById(categoryId)){
+            return new ResponseEntity<ApiResponse>(new ApiResponse(false, "category does not exists"), HttpStatus.NOT_FOUND);
+        }
+        categoryService.updateCategory(categoryId,category);
+        return new ResponseEntity<>(new ApiResponse(true,"category updated"), HttpStatus.OK);
+
     }
 
 
