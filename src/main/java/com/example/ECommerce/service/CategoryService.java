@@ -8,7 +8,8 @@ import java.util.List;
 public interface CategoryService {
      void createCategory(CategoryEntity category);
      List<CategoryEntity> getAllCaegory();
+     void updateCategory(Long categoryId,CategoryEntity category);
 
 
-
+     boolean findById(Long categoryId);
 }

@@ -25,5 +25,21 @@ public class CategoryServiceImp implements CategoryService {
 
     }
 
+    @Override
+    public void updateCategory(Long categoryId,CategoryEntity category) {
+        CategoryEntity existingCategory =categoryRepository.getById(categoryId);
+        CategoryEntity updatedCategory=CategoryEntity.builder()
+                .id(existingCategory.getId())
+                .categoryName(category.getCategoryName())
+                .description(category.getDescription())
+                .imageUrl(category.getImageUrl())
+                .build();
 
+        categoryRepository.save(updatedCategory);
+    }
+
+    @Override
+    public boolean findById(Long categoryId) {
+        return categoryRepository.findById(categoryId).isPresent();
+    }
 }
