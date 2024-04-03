@@ -2,13 +2,13 @@ package com.example.ECommerce.controller;
 
 import com.example.ECommerce.common.ApiResponse;
 import com.example.ECommerce.dto.ProductRequest;
+import com.example.ECommerce.dto.ProductResponse;
 import com.example.ECommerce.service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/product")
@@ -30,6 +30,10 @@ public class ProductController {
         }
 
 
+    }
+    @GetMapping("/allProduct")
+    public ResponseEntity <List<ProductResponse>> getProducts(){
+        return productService.getAllProducts();
     }
 
 }

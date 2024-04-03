@@ -1,8 +1,9 @@
 package com.example.ECommerce.model;
 
-import jakarta.persistence.*;
+import com.sun.istack.NotNull;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
+
+import javax.persistence.*;
 
 @Entity
 @Setter
