@@ -36,8 +36,8 @@ public class ProductServiceImp implements ProductService {
             throw new IllegalArgumentException("Category not found");
         }
         CategoryEntity category = optionalCategory.get();
-        ProductEntity product=productMapper.productRequestToProductEntity(productRequest);
-        product.setCategory(category);
+        ProductEntity productEntity=productMapper.productRequestToProductEntity(productRequest);
+        productEntity.setCategory(category);
 
 //                ProductEntity.builder()
 //                .name(productRequest.getName())
@@ -46,7 +46,7 @@ public class ProductServiceImp implements ProductService {
 //                .price(productRequest.getPrice())
 //                .category(category)
 //                .build();
-        productRepository.save(product);
+        productRepository.save(productEntity);
 
 
     }
