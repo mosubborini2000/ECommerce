@@ -1,9 +1,7 @@
-package com.example.ECommerce.Mapper;
-import com.example.ECommerce.dto.CategoryResponse;
+package com.example.ECommerce.mapper.category;
+import com.example.ECommerce.dto.categoryDto.CategoryResponse;
 import com.example.ECommerce.model.CategoryEntity;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
 
 import java.util.List;
 

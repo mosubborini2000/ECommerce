@@ -1,8 +1,9 @@
-package com.example.ECommerce.Mapper;
-import com.example.ECommerce.dto.ProductRequest;
+package com.example.ECommerce.mapper.productMapper;
+import com.example.ECommerce.dto.productDto.ProductRequest;
 import com.example.ECommerce.model.ProductEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 import org.mapstruct.Mappings;
 @Mapper(componentModel = "spring")
 public interface ProductRequestMapper {
@@ -11,4 +12,5 @@ public interface ProductRequestMapper {
             @Mapping(target = "category", ignore = true)
     })
     ProductEntity productRequestToProductEntity(ProductRequest productRequest);
+    ProductEntity updateProductEntityFromRequest(ProductRequest productRequest,@MappingTarget ProductEntity productEntity);
 }

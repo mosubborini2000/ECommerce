@@ -1,10 +1,10 @@
-package com.example.ECommerce.service;
+package com.example.ECommerce.service.categoryService;
 
-import com.example.ECommerce.Mapper.CategoryRequestMapper;
-import com.example.ECommerce.Mapper.CategoryResponseMapper;
-import com.example.ECommerce.Repository.CategoryRepository;
-import com.example.ECommerce.dto.CategoryRequest;
-import com.example.ECommerce.dto.CategoryResponse;
+import com.example.ECommerce.mapper.category.CategoryRequestMapper;
+import com.example.ECommerce.mapper.category.CategoryResponseMapper;
+import com.example.ECommerce.repository.CategoryRepository;
+import com.example.ECommerce.dto.categoryDto.CategoryRequest;
+import com.example.ECommerce.dto.categoryDto.CategoryResponse;
 import com.example.ECommerce.model.CategoryEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -32,6 +32,7 @@ public class CategoryServiceImp implements CategoryService {
     public ResponseEntity<List<CategoryResponse>> getAllCaegory() {
         List <CategoryEntity>categoryEntities=categoryRepository.findAll();
         List <CategoryResponse>categoryResponses=categoryResponseMapper.categoryEntitiesToCategoryResponses(categoryEntities);
+        System.out.println("all");
         return ResponseEntity.ok(categoryResponses);
 
     }

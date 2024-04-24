@@ -1,9 +1,8 @@
-package com.example.ECommerce.service;
+package com.example.ECommerce.service.categoryService;
 
 
-import com.example.ECommerce.dto.CategoryRequest;
-import com.example.ECommerce.dto.CategoryResponse;
-import com.example.ECommerce.model.CategoryEntity;
+import com.example.ECommerce.dto.categoryDto.CategoryRequest;
+import com.example.ECommerce.dto.categoryDto.CategoryResponse;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;

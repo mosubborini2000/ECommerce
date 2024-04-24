@@ -3,10 +3,9 @@ package com.example.ECommerce.controller;//package com.example.ECommerce.control
 
 
 import com.example.ECommerce.common.ApiResponse;
-import com.example.ECommerce.dto.CategoryRequest;
-import com.example.ECommerce.dto.CategoryResponse;
-import com.example.ECommerce.model.CategoryEntity;
-import com.example.ECommerce.service.CategoryService;
+import com.example.ECommerce.dto.categoryDto.CategoryRequest;
+import com.example.ECommerce.dto.categoryDto.CategoryResponse;
+import com.example.ECommerce.service.categoryService.CategoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -41,4 +40,8 @@ public class CategoryController {
 
     }
 
+    @GetMapping("/hi")
+    public String hi(){
+        return "hi";
+    }
 }

@@ -1,12 +1,12 @@
-package com.example.ECommerce.service;
+package com.example.ECommerce.service.productService;
 
 
-import com.example.ECommerce.Mapper.ProductRequestMapper;
-import com.example.ECommerce.Mapper.ProductResponseMapper;
-import com.example.ECommerce.Repository.CategoryRepository;
-import com.example.ECommerce.Repository.ProductRepository;
-import com.example.ECommerce.dto.ProductRequest;
-import com.example.ECommerce.dto.ProductResponse;
+import com.example.ECommerce.mapper.productMapper.ProductRequestMapper;
+import com.example.ECommerce.mapper.productMapper.ProductResponseMapper;
+import com.example.ECommerce.repository.CategoryRepository;
+import com.example.ECommerce.repository.ProductRepository;
+import com.example.ECommerce.dto.productDto.ProductRequest;
+import com.example.ECommerce.dto.productDto.ProductResponse;
 import com.example.ECommerce.model.CategoryEntity;
 import com.example.ECommerce.model.ProductEntity;
 import org.springframework.http.ResponseEntity;
@@ -55,5 +55,18 @@ public class ProductServiceImp implements ProductService {
         List<ProductEntity> products = productRepository.findAll();
         List<ProductResponse> productResponses = productResponseMapper.productEntitiesToProductResponses(products);
         return ResponseEntity.ok(productResponses);
+    }
+
+    @Override
+    public boolean findById(Long productId) {
+       return productRepository.findById(productId).isPresent();
+    }
+
+    @Override
+    public void updateProduct(Long productId, ProductRequest productRequest) {
+        ProductEntity productEntity=productRepository.getById(productId);
+        productMapper.updateProductEntityFromRequest(productRequest,productEntity);
+        productRepository.save(productEntity);
+
     }
 }

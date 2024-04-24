@@ -1,4 +1,4 @@
-package com.example.ECommerce.dto;
+package com.example.ECommerce.dto.categoryDto;
 
 import com.sun.istack.NotNull;
 import lombok.*;

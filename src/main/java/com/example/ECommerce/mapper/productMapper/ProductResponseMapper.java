@@ -1,6 +1,6 @@
-package com.example.ECommerce.Mapper;
+package com.example.ECommerce.mapper.productMapper;
 
-import com.example.ECommerce.dto.ProductResponse;
+import com.example.ECommerce.dto.productDto.ProductResponse;
 import com.example.ECommerce.model.ProductEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
